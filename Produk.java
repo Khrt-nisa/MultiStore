@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab2;
+package ProjectRumah.Bab3;
 
 /**
  *
@@ -44,52 +44,52 @@ public class Produk { // atribut kelas untuk menyimpan produk
     
     // Metode untuk mengatur nama produk
     public void setNamaProduk(String nama) {
-        namaProduk = nama;
+        namaProduk = nama; // Menyimpan nilai nama ke atribut namaProduk
     }
 
     // Metode untuk mendapatkan nama produk
     public String getNamaProduk() {
-        return namaProduk;
+        return namaProduk; // Mengembalikan nilai namaProduk
     }
 
     // Metode untuk mendapatkan mengatur harga produk
     public void setHarga(double harga) {
-        this.harga = harga;
+        this.harga = harga; // Menyimpan nilai harga ke atribut harga
     }
 
     // Metode untuk mendapatkan harga produk
     public double getHarga() {
-        return harga;
+        return harga; // Mengembalikan nilai harga
     }
 
   // Metode untuk mengatur stok produk  
     public void setStok(int stok) {
-        this.stok = stok;
+        this.stok = stok; // Menyimpan nilai stok ke atribut stok
     }
 
     // Metode untuk mendapatkan stok produk
     public int getStok() {
-        return stok;
+        return stok; // Mengembalikan nilai stok
     }
 
      // Metode untuk mengatur kategori produk
     public void setKategori(String kategori) {
-        this.kategori = kategori;
+        this.kategori = kategori; // Menyimpan nilai kategori ke atribut kategori
     }
 
     // Metode untuk mendapatkan kategori produk
     public String getKategori() {
-        return kategori;
+        return kategori; // Mengembalikan nilai kategori
     }
 
     // Metode untuk mengatur deskripsi produk
     public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+        this.deskripsi = deskripsi; // Menyimpan nilai deskripsi ke atribut deskripsi
     }
 
     // Metode untuk mendapatkan deskripsi produk
     public String getDeskripsi() {
-        return deskripsi;
+        return deskripsi; // Menyimpan nilai deskripsi ke atribut deskripsi
     }
 
     // Menampilkan detail produk
