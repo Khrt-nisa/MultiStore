@@ -2,23 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab4;
+package ProjectRumah.Bab5;
 
-import ProjectRumah.Bab3.*; // Mengimpor semua class dari package ProjectRumah.Bab3
+import ProjectRumah.Bab4.*; // Mengimpor kelas dari paket ProjectRumah.Bab4
+import java.awt.event.ActionEvent; // Mengimpor kelas ActionEvent untuk menangani event
+import java.awt.event.ActionListener; // Mengimpor kelas ActionListener untuk menangani aksi
+import javax.swing.JOptionPane; // Mengimpor JOptionPane untuk dialog pesan
+import javax.swing.table.DefaultTableModel; // Mengimpor DefaultTableModel untuk tabel
 
 /**
  *
  * @author Nisa
  */
-public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_Elektronik yang merupakan jendela utama aplikasi
+public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_Elektronik yang merupakan turunan JFrame
+private DefaultTableModel model; // Mendeklarasikan model untuk tabel
 
     /**
      * Creates new form GUI_Elektronik
      */
-    public GUI_Elektronik() {
-        initComponents(); // Memanggil method untuk inisialisasi komponen GUI
+    public GUI_Elektronik() { // Konstruktor GUI_Elektronik
+        initComponents(); // Memanggil metode untuk inisialisasi komponen GUI
+        initTable(); // Memanggil metode untuk inisialisasi tabel
     }
-
+    private void initTable() { // Metode untuk menginisialisasi tabel
+    model = new DefaultTableModel(); // Membuat objek model tabel baru
+    model.addColumn("Nama"); // Menambahkan kolom "Nama"
+    model.addColumn("Harga"); // Menambahkan kolom "Harga"
+    model.addColumn("Stok"); // Menambahkan kolom "Stok"
+    model.addColumn("Kategori"); // Menambahkan kolom "Kategori"
+    model.addColumn("Deskripsi"); // Menambahkan kolom "Deskripsi"
+    model.addColumn("Garansi"); // Menambahkan kolom "Garansi"
+    model.addColumn("Daya"); // Menambahkan kolom "Daya"
+    tblElektronik.setModel(model); // Menetapkan model tabel ke komponen tblElektronik
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,21 +46,24 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_El
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        Nama = new javax.swing.JTextField();
+        txtNama = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Harga = new javax.swing.JTextField();
+        txtHarga = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        Stok = new javax.swing.JTextField();
+        txtStok = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        Daya = new javax.swing.JTextField();
+        txtDaya = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        Garansi = new javax.swing.JTextField();
+        txtGaransi = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Memo1 = new javax.swing.JTextArea();
-        Tampilkan = new javax.swing.JButton();
-        Deskripsi = new javax.swing.JTextField();
+        btnSimpan = new javax.swing.JButton();
+        txtDeskripsi = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblElektronik = new javax.swing.JTable();
+        btnHapus = new javax.swing.JButton();
+        btnBatal = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,9 +75,9 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_El
 
         jLabel4.setText("Stok");
 
-        Stok.addActionListener(new java.awt.event.ActionListener() {
+        txtStok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StokActionPerformed(evt);
+                txtStokActionPerformed(evt);
             }
         });
 
@@ -67,14 +87,44 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_El
 
         jLabel7.setText("Deskripsi");
 
-        Memo1.setColumns(20);
-        Memo1.setRows(5);
-        jScrollPane1.setViewportView(Memo1);
-
-        Tampilkan.setText("Tampilkan");
-        Tampilkan.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan.setText("Simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TampilkanActionPerformed(evt);
+                btnSimpanActionPerformed(evt);
+            }
+        });
+
+        tblElektronik.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nama", "Harga", "Stok", "Daya", "Garansi", "Deskripsi"
+            }
+        ));
+        jScrollPane2.setViewportView(tblElektronik);
+
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
+
+        btnBatal.setText("Batal");
+        btnBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatalActionPerformed(evt);
+            }
+        });
+
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
             }
         });
 
@@ -82,10 +132,6 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_El
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,92 +143,144 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_El
                     .addComponent(jLabel7))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Deskripsi, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(Garansi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(Daya, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Stok, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Harga, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Nama, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Tampilkan)
-                        .addGap(101, 101, 101))))
+                    .addComponent(txtDeskripsi, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(txtGaransi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(txtDaya, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtStok, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNama, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSimpan)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnHapus)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnBatal)
+                        .addGap(39, 39, 39)
+                        .addComponent(btnClose))
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSimpan)
+                        .addComponent(btnHapus)
+                        .addComponent(btnBatal)
+                        .addComponent(btnClose)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(Tampilkan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(Nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(Harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(Stok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(Daya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDaya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(Garansi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtGaransi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(Deskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                            .addComponent(txtDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void StokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StokActionPerformed
+    private void txtStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStokActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_StokActionPerformed
+    }//GEN-LAST:event_txtStokActionPerformed
 
-     // Ketika tombol Tampilkan ditekan:
-    private void TampilkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TampilkanActionPerformed
-        // TODO add your handling code here:                                        
-        String nama = Nama.getText(); // Mengambil teks dari field Nama
-        double harga = Double.parseDouble(Harga.getText());// Mengambil dan ubah teks harga jadi double
-        int stok = Integer.parseInt(Stok.getText()); // Mengambil dan ubah teks stok jadi integer
-        String merek = Daya.getText(); // Sementara diisi dari field Daya (bisa diganti jika field merek tersedia)
-        String deskripsi = Deskripsi.getText();// Mengambil teks deskripsi
-        int garansi = Integer.parseInt(Garansi.getText()); // Mengambil dan ubah teks garansi jadi integer
-        int daya = Integer.parseInt(Garansi.getText()); // Menginisialisasi daya dari garansi (sementara, akan ditimpa)
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // TODO add your handling code here:   
+    String nama = txtNama.getText(); // Mendapatkan nilai dari text field nama
+        String hargaStr = txtHarga.getText(); // Mendapatkan nilai dari text field harga
+        String stokStr = txtStok.getText(); // Mendapatkan nilai dari text field stok
+        String dayaStr = txtDaya.getText(); // Mendapatkan nilai dari text field daya
+        String garansiStr = txtGaransi.getText(); // Mendapatkan nilai dari text field garansi
+        String kategori = "Elektronik"; // Menetapkan kategori sebagai "Elektronik"
+        String deskripsi = txtDeskripsi.getText(); // Mendapatkan nilai dari text field deskripsi
 
-        try {
-        // Cek jika daya diisi
-            daya = Integer.parseInt(Daya.getText()); // Mengambil dari inputan daya
-        } catch (NumberFormatException e) {
-            System.out.println("Input daya tidak valid atau kosong, menggunakan nilai default 0 watt.");// Jika input daya kosong atau tidak valid, kita biarkan daya tetap 0
+        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty() || dayaStr.isEmpty() || garansiStr.isEmpty()) { // Memeriksa apakah ada field yang kosong
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Menampilkan pesan peringatan
+            return; // Menghentikan eksekusi jika ada field yang kosong
         }
 
-        Elektronik e = new Elektronik(nama, harga, stok, merek, deskripsi, garansi);// Membuat objek Elektronik tanpa mengatur daya, karena daya sudah diatur sebelumnya
-        e.setDaya(daya); // Set daya yang diambil dari input pengguna atau default
+        try {
+            // Mengkonversi input yang berupa string menjadi tipe data angka
+            double harga = Double.parseDouble(hargaStr); // Mengubah harga menjadi tipe double
+            int stok = Integer.parseInt(stokStr); // Mengubah stok menjadi tipe integer
+            int daya = Integer.parseInt(dayaStr); // Mengubah daya menjadi tipe integer
+            int garansi = Integer.parseInt(garansiStr); // Mengubah garansi menjadi tipe integer
 
-    // Membersihkan dan menampilkan data dari objek Elektronik
-        Memo1.setText(""); // Menghapus teks sebelumnya dari Memo1
-        Memo1.append(e.getInfoProduk()); // Menampilkan informasi produk dengan daya yang sudah diatur
-    }//GEN-LAST:event_TampilkanActionPerformed
+            Elektronik e = new Elektronik(nama, harga, stok, kategori, deskripsi, garansi, daya); // Membuat objek Elektronik
+
+            Object[] rowData = { // Membuat data untuk baris tabel
+                e.getNama(), // Data Nama
+                e.getHarga(), // Data Harga 
+                e.getStok(), // Data Stok
+                e.getKategori(), // Data Kategori
+                e.getDeskripsi(), // Data Deskripsi
+                e.getGaransi(), // Data Garansi
+                e.getDaya() // Data Daya
+            };
+            model.addRow(rowData); // Menambahkan data baris baru ke dalam tabel
+
+            clearForm(); // Membersihkan form setelah simpan
+
+            System.out.println(e.getInfoProduk()); // Menampilkan info produk di konsol
+        } catch (NumberFormatException ex) { // Menangani kesalahan konversi data
+            JOptionPane.showMessageDialog(this, "Harga, Stok, Daya, dan Garansi harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE); // Menampilkan pesan error
+        }
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        // TODO add your handling code here:
+        System.exit(0); // Menutup aplikasi
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblElektronik.getSelectedRow(); // Mendapatkan baris yang dipilih pada tabel
+    if (selectedRow != -1) {
+        model.removeRow(selectedRow); // Menghapus baris yang dipilih
+    } else {
+        JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus."); // Menampilkan pesan jika tidak ada baris yang dipilih
+    }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
+        // TODO add your handling code here:
+    clearForm(); // Membersihkan form
+    }//GEN-LAST:event_btnBatalActionPerformed
+
+    private void clearForm() { // Metode untuk membersihkan semua field
+    txtNama.setText(""); // Mengosongkan text field nama
+    txtHarga.setText(""); // Mengosongkan text field harga
+    txtStok.setText(""); // Mengosongkan text field stok
+    txtDaya.setText(""); // Mengosongkan text field daya
+    txtGaransi.setText(""); // Mengosongkan text field garansi
+    txtDeskripsi.setText(""); // Mengosongkan text field deskripsi
+    }
 
     /**
      * @param args the command line arguments
@@ -212,22 +310,16 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_El
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI_Elektronik().setVisible(true); // Membuat objek GUI_Elektronik dan menampilkannya ke layar
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GUI_Elektronik().setVisible(true); // Membuat objek GUI_Elektronik dan menampilkannya ke layar
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Daya;
-    private javax.swing.JTextField Deskripsi;
-    private javax.swing.JTextField Garansi;
-    private javax.swing.JTextField Harga;
-    private javax.swing.JTextArea Memo1;
-    private javax.swing.JTextField Nama;
-    private javax.swing.JTextField Stok;
-    private javax.swing.JButton Tampilkan;
+    private javax.swing.JButton btnBatal;
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnSimpan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -235,6 +327,17 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_El
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblElektronik;
+    private javax.swing.JTextField txtDaya;
+    private javax.swing.JTextField txtDeskripsi;
+    private javax.swing.JTextField txtGaransi;
+    private javax.swing.JTextField txtHarga;
+    private javax.swing.JTextField txtNama;
+    private javax.swing.JTextField txtStok;
     // End of variables declaration//GEN-END:variables
 }
+
+
+
+

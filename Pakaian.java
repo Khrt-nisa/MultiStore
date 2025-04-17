@@ -2,31 +2,54 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab4;
+package ProjectRumah.Bab5;
 
-import ProjectRumah.Bab3.*; // Mengimpor semua class dari package ProjectRumah.Bab3
+import ProjectRumah.Bab4.*;
 
 /**
  *
  * @author Nisa
  */
-public class Pakaian extends Produk{ // Membuat class Pakaian yang merupakan turunan dari class Produk
-    private String ukuran; // Variabel untuk menyimpan ukuran pakaian
-    private String bahan; // Variabel untuk menyimpan jenis bahan pakaian
+public class Pakaian extends Produk { // Membuat class Pakaian yang mewarisi (extends) class Produk
 
-    public Pakaian(String nama, double harga, int stok, String kategori, String deskripsi, String ukuran) { // Konstruktor untuk mengisi nilai saat objek Pakaian dibuat
-        super(nama, harga, stok, kategori, deskripsi); // Memanggil konstruktor dari class induk (Produk)
-        this.ukuran = ukuran; // Menyimpan nilai ukuran ke variabel
-        this.bahan = bahan; // Menyimpan nilai bahan ke variabel
+    private String ukuran; // Menyimpan ukuran pakaian
+    private String warna;  // Menyimpan warna pakaian
+
+    public Pakaian(String nama, double harga, int stok, String kategori, String deskripsi, String ukuran, String warna) { // Konstruktor lengkap: dipanggil saat membuat objek pakaian dengan semua data lengkap
+        super(nama, harga, stok, kategori, deskripsi); // Memanggil konstruktor dari class Produk
+        this.ukuran = ukuran; // Menyimpan ukuran dari parameter ke variabel ukuran
+        this.warna = warna;   // Menyimpan warna dari parameter ke variabel warna
     }
 
-    public String getUkuran() { return ukuran; } // Getter untuk mengambil nilai ukuran
-    public void setUkuran(String ukuran) { this.ukuran = ukuran; } // Setter untuk mengubah nilai ukuran
+    public Pakaian(String nama, double harga, int stok, String kategori, String deskripsi, String ukuran) { // Konstruktor overloading
+        super(nama, harga, stok, kategori, deskripsi); // Memanggil konstruktor dari class Produk
+        this.ukuran = ukuran; // Menyimpan ukuran dari parameter
+        this.warna = "Tidak diketahui"; // Mengatur warna default jika tidak diberikan
+    }
 
-    public String getBahan() { return bahan; } // Getter untuk mengambil nilai bahan
-    public void setBahan(String bahan) { this.bahan = bahan; } // Setter untuk mengubah nilai bahan
+    public String getUkuran() { // Getter untuk mengambil ukuran pakaian
+        return ukuran; // Menyimpan nilai ukuran
+    }
 
-    public String getInfoProduk() { // Method untuk mengembalikan informasi lengkap produk pakaian
-        return super.getInfoProduk() + "\nUkuran: " + ukuran + "\nBahan: " + bahan; // Menambahkan info ukuran dan bahan ke info produk umum
+    public void setUkuran(String ukuran) { // Setter untuk mengubah ukuran pakaian
+        this.ukuran = ukuran; // Menyimpan nilai warna
+    }
+
+    public String getWarna() { // Getter untuk mengambil warna pakaian
+        return warna; // Mengembalikan nilai warna
+    }
+
+    public void setWarna(String warna) { // Setter untuk mengubah warna pakaian
+        this.warna = warna; // menyimpan nilai warna
+    }
+
+    // Method overriding: menambahkan informasi ukuran dan warna ke info produk
+    @Override
+    public String getInfoProduk() {
+        return super.getInfoProduk() + // Ambil info dasar dari class Produk
+               "\nUkuran: " + ukuran + "cm" + // Tambahkan ukuran pakaian
+               "\nWarna: " + warna; // Tambahkan warna pakaian
     }
 }
+
+
