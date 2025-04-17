@@ -2,19 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab3;
+package ProjectRumah.Bab4;
+
+import ProjectRumah.Bab3.*; // Mengimpor semua class dari package ProjectRumah.Bab3
 
 /**
  *
  * @author Nisa
  */
-public class GUI_Elektronik extends javax.swing.JFrame {
+public class GUI_Elektronik extends javax.swing.JFrame { // Membuat class GUI_Elektronik yang merupakan jendela utama aplikasi
 
     /**
      * Creates new form GUI_Elektronik
      */
     public GUI_Elektronik() {
-        initComponents();
+        initComponents(); // Memanggil method untuk inisialisasi komponen GUI
     }
 
     /**
@@ -34,7 +36,7 @@ public class GUI_Elektronik extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         Stok = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        Merek = new javax.swing.JTextField();
+        Daya = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         Garansi = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -59,7 +61,7 @@ public class GUI_Elektronik extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Merek");
+        jLabel5.setText("Daya");
 
         jLabel6.setText("Garansi");
 
@@ -96,12 +98,11 @@ public class GUI_Elektronik extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(Deskripsi, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Garansi, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                        .addComponent(Merek)
-                        .addComponent(Stok)
-                        .addComponent(Harga)
-                        .addComponent(Nama)))
+                    .addComponent(Garansi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(Daya, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Stok, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Harga, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Nama, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -138,7 +139,7 @@ public class GUI_Elektronik extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(Merek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Daya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -157,27 +158,30 @@ public class GUI_Elektronik extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_StokActionPerformed
 
+     // Ketika tombol Tampilkan ditekan:
     private void TampilkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TampilkanActionPerformed
-        // TODO add your handling code here:
-            String nama = Nama.getText(); // Mengambil input dari field Nama
-            double harga = Double.parseDouble(Harga.getText());  // Mengambil dan mengubah input dari field Harga menjadi tipe double
-            int stok = Integer.parseInt(Stok.getText());  // Mengambil dan mengubah input dari field Stok menjadi tipe int
-            String merek = Merek.getText();  // Mengambil input dari field Merek
-            String deskripsi = Deskripsi.getText(); // Mengambil input dari field Deskripsi
-            int garansi = Integer.parseInt(Garansi.getText()); // Mengambil dan mengubah input dari field Garansi menjadi tipe int
-    
-            // Clear isi Memo1 sebelum menampilkan data baru
-            Memo1.setText("");
-    
-            // Tampilkan hasil input ke Memo1
-            Memo1.append("=== Produk Elektronik ===\n"); // Menambahkan judul
-            Memo1.append("Nama: " + nama + "\n"); // Menambahkan nama produk 
-            Memo1.append(String.format("Harga: Rp%,.0f%n", harga)); // Menambahkan harga produk ke Memo1 dengan format ribuan
-            Memo1.append("Stok: " + stok + " unit\n"); // Menambahkan jumlah stok produk 
-            Memo1.append("Merek: " + merek + "\n"); // Menambahkan merek produk
-            Memo1.append("Garansi: " + garansi + " tahun\n"); // Menambahkan informasi garansi produk dalam satuan tahun
-            Memo1.append("Deskripsi: " + deskripsi + "\n"); // Menambahkan deskripsi produk
-            Memo1.append("=========================\n"); // Menambahkan garis penutup
+        // TODO add your handling code here:                                        
+        String nama = Nama.getText(); // Mengambil teks dari field Nama
+        double harga = Double.parseDouble(Harga.getText());// Mengambil dan ubah teks harga jadi double
+        int stok = Integer.parseInt(Stok.getText()); // Mengambil dan ubah teks stok jadi integer
+        String merek = Daya.getText(); // Sementara diisi dari field Daya (bisa diganti jika field merek tersedia)
+        String deskripsi = Deskripsi.getText();// Mengambil teks deskripsi
+        int garansi = Integer.parseInt(Garansi.getText()); // Mengambil dan ubah teks garansi jadi integer
+        int daya = Integer.parseInt(Garansi.getText()); // Menginisialisasi daya dari garansi (sementara, akan ditimpa)
+
+        try {
+        // Cek jika daya diisi
+            daya = Integer.parseInt(Daya.getText()); // Mengambil dari inputan daya
+        } catch (NumberFormatException e) {
+            System.out.println("Input daya tidak valid atau kosong, menggunakan nilai default 0 watt.");// Jika input daya kosong atau tidak valid, kita biarkan daya tetap 0
+        }
+
+        Elektronik e = new Elektronik(nama, harga, stok, merek, deskripsi, garansi);// Membuat objek Elektronik tanpa mengatur daya, karena daya sudah diatur sebelumnya
+        e.setDaya(daya); // Set daya yang diambil dari input pengguna atau default
+
+    // Membersihkan dan menampilkan data dari objek Elektronik
+        Memo1.setText(""); // Menghapus teks sebelumnya dari Memo1
+        Memo1.append(e.getInfoProduk()); // Menampilkan informasi produk dengan daya yang sudah diatur
     }//GEN-LAST:event_TampilkanActionPerformed
 
     /**
@@ -216,11 +220,11 @@ public class GUI_Elektronik extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Daya;
     private javax.swing.JTextField Deskripsi;
     private javax.swing.JTextField Garansi;
     private javax.swing.JTextField Harga;
     private javax.swing.JTextArea Memo1;
-    private javax.swing.JTextField Merek;
     private javax.swing.JTextField Nama;
     private javax.swing.JTextField Stok;
     private javax.swing.JButton Tampilkan;

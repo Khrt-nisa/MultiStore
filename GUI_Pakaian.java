@@ -2,19 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab3;
+package ProjectRumah.Bab4;
+
+import ProjectRumah.Bab3.*; // Mengimpor semua class dari package ProjectRumah.Bab3
 
 /**
  *
  * @author Nisa
  */
-public class GUI_Pakaian extends javax.swing.JFrame {
+public class GUI_Pakaian extends javax.swing.JFrame { // Membuat jendela GUI bernama GUI_Pakaian
+    private String kategori; // Variabel untuk menyimpan kategori
 
     /**
      * Creates new form GUI_Pakaian
      */
-    public GUI_Pakaian() {
-        initComponents();
+    public GUI_Pakaian() { // Konstruktor dipanggil saat jendela dibuat
+        initComponents(); // Memanggil method yang mengatur semua komponen GUI
     }
 
     /**
@@ -114,7 +117,7 @@ public class GUI_Pakaian extends javax.swing.JFrame {
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(Ukuran, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,8 +145,8 @@ public class GUI_Pakaian extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(Tampilkan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,27 +154,17 @@ public class GUI_Pakaian extends javax.swing.JFrame {
 
     // Method yang dijalankan saat tombol 
     private void TampilkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TampilkanActionPerformed
-        // TODO add your handling code here:
-        String nama = Nama.getText(); // Mengambil input dari field Nama dan menyimpannya ke variabel nama
-        double harga = Double.parseDouble(Harga.getText());// Mengambil input dari field Harga, mengubahnya jadi double
-        int stok = Integer.parseInt(Stok.getText()); // Mengambil input dari field Stok, mengubahnya jadi integer
-        String ukuran = Ukuran.getText(); // Mengambil input dari field Ukuran
-        String warna = Warna.getText(); // Mengambil input dari field Warna 
-        String deskripsi = Deskripsi.getText(); // Mengambil input dari field Deskripsi
-        String Tampilkan = Memo1.getText(); // Mengambil isi Memo1 sebelumnya
+        // TODO add your handling code here:                                                                                 
+        // Mengambil input dari form
+        String nama = Nama.getText();// Mengambil teks dari field Nama
+        double harga = Double.parseDouble(Harga.getText()); // Mengubah teks Harga menjadi double
+        int stok = Integer.parseInt(Stok.getText()); // Mengubah teks Stok menjadi integer
+        String deskripsi = Deskripsi.getText(); // Mengambil teks dari field Deskripsi
+        String ukuran = Ukuran.getText(); // Mengambil teks dari field Ukuran
+        String warna = Warna.getText();  // Mengambil teks dari field Warna
 
-        // Clear Memo1 sebelum menampilkan data baru
-        Memo1.setText("");
-
-        // Tampilkan hasil input ke Memo1
-        Memo1.append("=== Produk Pakaian ===\n"); // Menambahkan judul
-        Memo1.append("Nama: " + nama + "\n"); // Menampilkan nama produk
-        Memo1.append(String.format("Harga: Rp%,.0f%n", harga)); // Menampilkan harga produk dengan format ribuan
-        Memo1.append("Stok: " + stok + " unit\n"); // Menampilkan stok produk
-        Memo1.append("Ukuran: " + ukuran + "\n"); // Menampilkan ukuran pakaian
-        Memo1.append("Bahan: " + warna + "\n"); // Menampilkan warna (atau bahan) pakaian
-        Memo1.append("Deskripsi: " + deskripsi + "\n"); // Menampilkan deskripsi produk
-        Memo1.append("======================\n"); // Menambahkan garis penutup data
+    Pakaian p = new Pakaian(nama, harga, stok, deskripsi, ukuran, warna); // Buat objek Pakaian
+    Memo1.setText(p.getInfoProduk()); // Menampilkan hasil ke Memo1
     }//GEN-LAST:event_TampilkanActionPerformed
 
     private void DeskripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeskripsiActionPerformed
@@ -203,6 +196,7 @@ public class GUI_Pakaian extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Pakaian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

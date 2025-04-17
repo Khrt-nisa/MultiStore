@@ -42,7 +42,7 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="Deskripsi" pref="115" max="32767" attributes="0"/>
                   <Component id="Garansi" alignment="0" pref="115" max="32767" attributes="0"/>
-                  <Component id="Merek" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Daya" alignment="0" max="32767" attributes="0"/>
                   <Component id="Stok" alignment="0" max="32767" attributes="0"/>
                   <Component id="Harga" alignment="0" max="32767" attributes="0"/>
                   <Component id="Nama" alignment="0" max="32767" attributes="0"/>
@@ -92,7 +92,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="Merek" min="-2" max="-2" attributes="0"/>
+                          <Component id="Daya" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -143,10 +143,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Merek"/>
+        <Property name="text" type="java.lang.String" value="Daya"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="Merek">
+    <Component class="javax.swing.JTextField" name="Daya">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>

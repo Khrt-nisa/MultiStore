@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab3;
-import Produk.*;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+package ProjectRumah.Bab4;
+import Produk.*; // Mengimpor kelas-kelas dari paket Produk
+import javax.swing.*; // Mengimpor pustaka GUI Swing
+import javax.swing.table.DefaultTableModel; // Mengimpor model tabel
 /**
  *
  * @author Nisa
@@ -22,8 +22,8 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
     
     private void initTable() { // Inisialisasi tabel dengan nama kolom
         String[] columnNames = {"Nama Produk", "Harga", "Stok", "Kategori", "Deskripsi"}; // Nama yang ada di tabel kolom
-        model = new DefaultTableModel(null, columnNames); // Buat model tabel kosong
-        tblProduk.setModel(model); // Atur model ke tabel
+        model = new DefaultTableModel(null, columnNames); // Membuat model tabel kosong
+        tblProduk.setModel(model); // Mengatur model ke tabel
     }
 
     /**
@@ -199,21 +199,30 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
 
     // Event saat tombol Simpan diklik
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        // TODO add your handling code here:
-        String nama = txtNamaProduk.getText();// Ambil nama produk dari text field
-        String harga = txtHarga.getText();  // Ambil harga dari text field
-        String stok = txtStok.getText(); // Ambil stok dari text field
-        String kategori = cmbKategori.getSelectedItem().toString(); // Ambil kategori yang dipilih dari combo box
-        String deskripsi = txtDeskripsi.getText(); // Ambil deskripsi dari text area
+        // TODO add your handling code here:                                       
+        String nama = txtNamaProduk.getText();// Mengambil input nama produk.
+        String hargaStr = txtHarga.getText(); // Mengambil input harga produk.
+        String stokStr = txtStok.getText(); // Mengambil input stok produk
+        String kategori = cmbKategori.getSelectedItem().toString(); // Mengambil kategori produk yang dipilih
+        String deskripsi = txtDeskripsi.getText(); // Mengambil deskripsi produk.
 
-        if (nama.isEmpty() || harga.isEmpty() || stok.isEmpty()) { // Validasi
-            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Jika ada field penting yang kosong, tampilkan pesan peringatan
-            return; // keluar dari method
-        }
+        // Validasi input
+        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) { // Validasi input untuk memastikan semua kolom terisi
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Menampilkan pesan peringatan
+            return;
+    }
 
-        Object[] rowData = {nama, harga, stok, kategori, deskripsi}; // Buat array berisi data inputan untuk ditambahkan ke tabel
-        model.addRow(rowData); // Tambahkan data ke model tabel
-        clearForm(); // Kosongkan semua inputan setelah data disimpan
+        double harga = Double.parseDouble(hargaStr); // Mengonversi harga ke tipe data double
+        int stok = Integer.parseInt(stokStr); // Mengonversi stok ke tipe data integer
+
+        Produk p = new Produk(nama, harga, stok, kategori, deskripsi); // Buat objek Produk dengan data yang diambil dari input
+
+        Object[] rowData = {p.getNama(), p.getHarga(), p.getStok(), p.getKategori(), p.getDeskripsi()};// Menyusun data produk ke dalam array
+        model.addRow(rowData); // Menambahkan data produk ke dalam model tabel
+
+        clearForm(); // Kosongkan form setelah data disimpan
+
+        System.out.println(p.getInfoProduk());// Tampilkan info produk di konsol
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
@@ -253,6 +262,20 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Produk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
