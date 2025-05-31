@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab5; // Menentukan lokasi package
+package ProjectRumah.Bab6; // Menentukan lokasi package
+import ProjectRumah.Bab5.*;
 import ProjectRumah.Bab4.*; // Mengimpor semua class dari Bab4
-import Produk.*; // Mengimpor semua class dari package Produk
 import java.awt.event.*; // Mengimpor event seperti klik tombol
 import javax.swing.*; // Untuk komponen GUI (label, tombol, dll)
 import javax.swing.table.DefaultTableModel; // Untuk model tabel (data ditampilkan di tabel)
@@ -311,6 +311,7 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Produk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab5;
+package ProjectRumah.Bab6;
 
+import ProjectRumah.Bab5.*;
 import ProjectRumah.Bab4.*;
 /**
  *

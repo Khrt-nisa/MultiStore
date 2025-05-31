@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab5;
+package ProjectRumah.Bab6;
 
+import ProjectRumah.Bab5.*;
 import ProjectRumah.Bab4.*;
 
 /**
@@ -46,9 +47,13 @@ public class Pakaian extends Produk { // Membuat class Pakaian yang mewarisi (ex
     // Method overriding: menambahkan informasi ukuran dan warna ke info produk
     @Override
     public String getInfoProduk() {
-        return super.getInfoProduk() + // Ambil info dasar dari class Produk
-               "\nUkuran: " + ukuran + "cm" + // Tambahkan ukuran pakaian
-               "\nWarna: " + warna; // Tambahkan warna pakaian
+    return "Nama Produk: " + getNama() +
+           "\nHarga: " + getHarga() +
+           "\nStok: " + getStok() +
+           "\nKategori: " + getKategori() +
+           "\nDeskripsi: " + getDeskripsi() +
+           "\nUkuran: " + ukuran +
+           "\nWarna: " + warna;
     }
 }
 

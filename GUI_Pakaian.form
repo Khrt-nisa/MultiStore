@@ -224,9 +224,9 @@
                 <Column editable="true" title="Nama" type="java.lang.Object"/>
                 <Column editable="true" title="Harga" type="java.lang.Object"/>
                 <Column editable="true" title="Stok" type="java.lang.Object"/>
-                <Column editable="true" title="Ukuran" type="java.lang.Object"/>
-                <Column editable="true" title="Warna" type="java.lang.Object"/>
+                <Column editable="true" title="Kategori" type="java.lang.Object"/>
                 <Column editable="true" title="Deskripsi" type="java.lang.Object"/>
+                <Column editable="true" title="Ukuran" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>

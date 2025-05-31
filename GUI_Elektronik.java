@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab5;
+package ProjectRumah.Bab6;
 
+import ProjectRumah.Bab5.*;
 import ProjectRumah.Bab4.*; // Mengimpor kelas dari paket ProjectRumah.Bab4
 import java.awt.event.ActionEvent; // Mengimpor kelas ActionEvent untuk menangani event
 import java.awt.event.ActionListener; // Mengimpor kelas ActionListener untuk menangani aksi
@@ -307,6 +308,7 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Elektronik.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

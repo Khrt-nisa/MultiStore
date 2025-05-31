@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab5;
+package ProjectRumah.Bab6;
 
+import ProjectRumah.Bab5.*;
 import ProjectRumah.Bab4.*; // Mengimpor class-class dari package Bab4
 import javax.swing.JOptionPane; // Untuk menampilkan pop-up dialog
 import javax.swing.table.DefaultTableModel; // Model tabel untuk manipulasi data tabel
@@ -110,7 +111,7 @@ public class GUI_Pakaian extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nama", "Harga", "Stok", "Ukuran", "Warna", "Deskripsi"
+                "Nama", "Harga", "Stok", "Kategori", "Deskripsi", "Ukuran"
             }
         ));
         jScrollPane2.setViewportView(tblPakaian);
@@ -308,6 +309,10 @@ public class GUI_Pakaian extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Pakaian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
