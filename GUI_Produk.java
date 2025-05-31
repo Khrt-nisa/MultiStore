@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab6; // Menentukan lokasi package
-import ProjectRumah.Bab5.*;
-import ProjectRumah.Bab4.*; // Mengimpor semua class dari Bab4
+package ProjectRumah.Bab7; // Menentukan lokasi package
+
 import java.awt.event.*; // Mengimpor event seperti klik tombol
 import javax.swing.*; // Untuk komponen GUI (label, tombol, dll)
 import javax.swing.table.DefaultTableModel; // Untuk model tabel (data ditampilkan di tabel)
@@ -14,7 +13,9 @@ import javax.swing.table.DefaultTableModel; // Untuk model tabel (data ditampilk
  * @author Nisa
  */
 public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
+
     DefaultTableModel model; // Model tabel untuk menampung data produk
+
     /**
      * Creates new form GUI_Produk
      */
@@ -22,7 +23,7 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
         initComponents(); // Inisialisasi komponen GUI
         initTable(); // initialize table model
     }
-    
+
     private void initTable() { // Inisialisasi tabel dengan nama kolom
         String[] columnNames = {"Nama Produk", "Harga", "Stok", "Kategori", "Deskripsi"}; // Nama yang ada di tabel kolom
         model = new DefaultTableModel(null, columnNames); // Buat model tabel kosong
@@ -125,13 +126,18 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
-                        .addGap(21, 21, 21))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,37 +145,31 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtHarga)
+                                    .addComponent(txtHarga, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                                     .addComponent(txtNamaProduk)
-                                    .addComponent(txtStok)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(btnSimpan)
-                                .addGap(48, 48, 48)
-                                .addComponent(txtHapus)))
+                                    .addComponent(txtStok))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnBatal)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(txtClose))
-                                    .addComponent(txtDeskripsi))
+                                .addComponent(txtDeskripsi)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(scrollDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSimpan)
+                                .addGap(48, 48, 48)
+                                .addComponent(txtHapus)
+                                .addGap(59, 59, 59)
+                                .addComponent(btnBatal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtClose))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,14 +206,14 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
                         .addComponent(txtDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSimpan)
-                        .addComponent(txtClose)
-                        .addComponent(btnBatal))
-                    .addComponent(txtHapus, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                    .addComponent(btnSimpan)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtHapus)
+                        .addComponent(btnBatal)
+                        .addComponent(txtClose)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,29 +226,53 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
     // Event saat tombol Simpan diklik
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:                                       
-        String nama = txtNamaProduk.getText(); // Mengambil nama produk dari input
-        String hargaStr = txtHarga.getText(); // Mengambil harga (masih dalam bentuk teks)
-        String stokStr = txtStok.getText(); // Mengambil stok (teks)
+        String nama = txtNamaProduk.getText(); // Mengambil input nama produk
+        String hargaStr = txtHarga.getText(); // Mengambil input harga dalam bentuk string
+        String stokStr = txtStok.getText(); // Mengambil input stok dalam bentuk string
         String kategori = cmbKategori.getSelectedItem().toString(); // Mengambil kategori yang dipilih
-        String deskripsi = txtDeskripsi.getText(); // Mengambil deskripsi
-
-        // Validasi input
-        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) { // Validasi input
-            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Menampilkan pesan peringatan
-            return;
+        String deskripsi = txtDeskripsi.getText(); // Mengambil input deskripsi
+        
+        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Validasi input kosong
+            return; // Menghentikan proses jika ada input kosong
         }
 
-        double harga = Double.parseDouble(hargaStr); // Ubah harga jadi double
-        int stok = Integer.parseInt(stokStr); // Ubah stok jadi int
+        try {
+            double harga = Double.parseDouble(hargaStr); // Mengubah harga menjadi double
+            int stok = Integer.parseInt(stokStr); // Mengubah stok menjadi integer
 
-        Produk p = new Produk(nama, harga, stok, kategori, deskripsi); // Buat objek Produk
+            Produk p = null; // Deklarasi objek produk
 
-        Object[] rowData = {p.getNama(), p.getHarga(), p.getStok(), p.getKategori(), p.getDeskripsi()};
-        model.addRow(rowData); // Tambahkan data ke tabel
+            if (kategori.equals("Elektronik")) {
+                int garansi = 12; // Nilai default garansi
+                int daya = 100; // Nilai default daya
+                p = new Elektronik(nama, harga, stok, kategori, deskripsi); // Membuat objek Elektronik
 
-        clearForm(); // Kosongkan form input
+            } else if (kategori.equals("Pakaian")) {
+                String ukuran = "M"; // Nilai default ukuran
+                String warna = "Hitam"; // Nilai default warna
+                p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran); // Membuat objek Pakaian
 
-        System.out.println(p.getInfoProduk()); // Tampilkan info produk di konsol
+            } else {
+                JOptionPane.showMessageDialog(this, "Kategori belum didukung!", "Error", JOptionPane.ERROR_MESSAGE); // Pesan jika kategori tidak dikenali
+                return;
+            }
+
+            Object[] rowData = {
+                p.getNama(),
+                p.getHarga(),
+                p.getStok(),
+                p.getKategori(),
+                p.getDeskripsi()
+            };
+
+            model.addRow(rowData); // Menambahkan data ke tabel
+            clearForm(); // Membersihkan form input
+            System.out.println(p.getInfoProduk()); // Menampilkan informasi produk di konsol
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Harga dan Stok harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE); // Validasi input angka
+        }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
@@ -278,14 +302,14 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
             }
         });
     }//GEN-LAST:event_txtCloseActionPerformed
-    private void clearForm() { 
+    private void clearForm() {
         txtNamaProduk.setText(""); // Mengosongkan kolom nama produk
         txtHarga.setText(""); // Mengosongkan kolom harga
         txtStok.setText(""); // Mengosongkan kolom stok
         cmbKategori.setSelectedIndex(0); // Mengembalikan pilihan kategori ke indeks pertama
         txtDeskripsi.setText(""); // Mengosongkan kolom deskripsi
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -311,6 +335,8 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Produk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

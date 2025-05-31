@@ -2,10 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab6;
+package ProjectRumah.Bab7;
 
-import ProjectRumah.Bab5.*;
-import ProjectRumah.Bab4.*; // Mengimpor kelas dari paket ProjectRumah.Bab4
 import java.awt.event.ActionEvent; // Mengimpor kelas ActionEvent untuk menangani event
 import java.awt.event.ActionListener; // Mengimpor kelas ActionListener untuk menangani aksi
 import javax.swing.JOptionPane; // Mengimpor JOptionPane untuk dialog pesan
@@ -16,7 +14,8 @@ import javax.swing.table.DefaultTableModel; // Mengimpor DefaultTableModel untuk
  * @author Nisa
  */
 public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_Elektronik yang merupakan turunan JFrame
-private DefaultTableModel model; // Mendeklarasikan model untuk tabel
+
+    private DefaultTableModel model; // Mendeklarasikan model untuk tabel
 
     /**
      * Creates new form GUI_Elektronik
@@ -25,18 +24,17 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
         initComponents(); // Memanggil metode untuk inisialisasi komponen GUI
         initTable(); // Memanggil metode untuk inisialisasi tabel
     }
+
     private void initTable() { // Metode untuk menginisialisasi tabel
-    model = new DefaultTableModel(); // Membuat objek model tabel baru
-    model.addColumn("Nama"); // Menambahkan kolom "Nama"
-    model.addColumn("Harga"); // Menambahkan kolom "Harga"
-    model.addColumn("Stok"); // Menambahkan kolom "Stok"
-    model.addColumn("Kategori"); // Menambahkan kolom "Kategori"
-    model.addColumn("Deskripsi"); // Menambahkan kolom "Deskripsi"
-    model.addColumn("Garansi"); // Menambahkan kolom "Garansi"
-    model.addColumn("Daya"); // Menambahkan kolom "Daya"
-    tblElektronik.setModel(model); // Menetapkan model tabel ke komponen tblElektronik
+        model = new DefaultTableModel(); // Membuat objek model tabel baru
+        model.addColumn("Nama"); // Menambahkan kolom "Nama"
+        model.addColumn("Harga"); // Menambahkan kolom "Harga"
+        model.addColumn("Stok"); // Menambahkan kolom "Stok"
+        model.addColumn("Kategori"); // Menambahkan kolom "Kategori"
+        model.addColumn("Deskripsi"); // Menambahkan kolom "Deskripsi"
+        tblElektronik.setModel(model); // Menetapkan model tabel ke komponen tblElektronik
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,10 +51,6 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
         txtHarga = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtStok = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtDaya = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtGaransi = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btnSimpan = new javax.swing.JButton();
         txtDeskripsi = new javax.swing.JTextField();
@@ -82,10 +76,6 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
             }
         });
 
-        jLabel5.setText("Daya");
-
-        jLabel6.setText("Garansi");
-
         jLabel7.setText("Deskripsi");
 
         btnSimpan.setText("Simpan");
@@ -97,13 +87,13 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
 
         tblElektronik.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nama", "Harga", "Stok", "Daya", "Garansi", "Deskripsi"
+                "Nama", "Harga", "Stok", "Kategori", "Deskripsi"
             }
         ));
         jScrollPane2.setViewportView(tblElektronik);
@@ -135,73 +125,67 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtDeskripsi, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(txtGaransi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(txtDaya, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtStok, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNama, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(txtNama, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSimpan)
-                        .addGap(33, 33, 33)
+                        .addGap(27, 27, 27)
                         .addComponent(btnHapus)
-                        .addGap(31, 31, 31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBatal)
                         .addGap(39, 39, 39)
                         .addComponent(btnClose))
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(155, 155, 155))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSimpan)
-                        .addComponent(btnHapus)
-                        .addComponent(btnBatal)
-                        .addComponent(btnClose)))
+                        .addComponent(jLabel4)
+                        .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(txtDaya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(txtGaransi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSimpan)
+                    .addComponent(btnHapus)
+                    .addComponent(btnBatal)
+                    .addComponent(btnClose))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,15 +197,13 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:   
-    String nama = txtNama.getText(); // Mendapatkan nilai dari text field nama
+        String nama = txtNama.getText(); // Mendapatkan nilai dari text field nama
         String hargaStr = txtHarga.getText(); // Mendapatkan nilai dari text field harga
         String stokStr = txtStok.getText(); // Mendapatkan nilai dari text field stok
-        String dayaStr = txtDaya.getText(); // Mendapatkan nilai dari text field daya
-        String garansiStr = txtGaransi.getText(); // Mendapatkan nilai dari text field garansi
         String kategori = "Elektronik"; // Menetapkan kategori sebagai "Elektronik"
         String deskripsi = txtDeskripsi.getText(); // Mendapatkan nilai dari text field deskripsi
 
-        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty() || dayaStr.isEmpty() || garansiStr.isEmpty()) { // Memeriksa apakah ada field yang kosong
+        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) { // Memeriksa apakah ada field yang kosong
             JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Menampilkan pesan peringatan
             return; // Menghentikan eksekusi jika ada field yang kosong
         }
@@ -230,19 +212,15 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
             // Mengkonversi input yang berupa string menjadi tipe data angka
             double harga = Double.parseDouble(hargaStr); // Mengubah harga menjadi tipe double
             int stok = Integer.parseInt(stokStr); // Mengubah stok menjadi tipe integer
-            int daya = Integer.parseInt(dayaStr); // Mengubah daya menjadi tipe integer
-            int garansi = Integer.parseInt(garansiStr); // Mengubah garansi menjadi tipe integer
 
-            Elektronik e = new Elektronik(nama, harga, stok, kategori, deskripsi, garansi, daya); // Membuat objek Elektronik
+            Elektronik e = new Elektronik(nama, harga, stok, kategori, deskripsi); // Membuat objek Elektronik
 
             Object[] rowData = { // Membuat data untuk baris tabel
                 e.getNama(), // Data Nama
                 e.getHarga(), // Data Harga 
                 e.getStok(), // Data Stok
                 e.getKategori(), // Data Kategori
-                e.getDeskripsi(), // Data Deskripsi
-                e.getGaransi(), // Data Garansi
-                e.getDaya() // Data Daya
+                e.getDeskripsi(), // Data Deskripsi,
             };
             model.addRow(rowData); // Menambahkan data baris baru ke dalam tabel
 
@@ -262,25 +240,23 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblElektronik.getSelectedRow(); // Mendapatkan baris yang dipilih pada tabel
-    if (selectedRow != -1) {
-        model.removeRow(selectedRow); // Menghapus baris yang dipilih
-    } else {
-        JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus."); // Menampilkan pesan jika tidak ada baris yang dipilih
-    }
+        if (selectedRow != -1) {
+            model.removeRow(selectedRow); // Menghapus baris yang dipilih
+        } else {
+            JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus."); // Menampilkan pesan jika tidak ada baris yang dipilih
+        }
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         // TODO add your handling code here:
-    clearForm(); // Membersihkan form
+        clearForm(); // Membersihkan form
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void clearForm() { // Metode untuk membersihkan semua field
-    txtNama.setText(""); // Mengosongkan text field nama
-    txtHarga.setText(""); // Mengosongkan text field harga
-    txtStok.setText(""); // Mengosongkan text field stok
-    txtDaya.setText(""); // Mengosongkan text field daya
-    txtGaransi.setText(""); // Mengosongkan text field garansi
-    txtDeskripsi.setText(""); // Mengosongkan text field deskripsi
+        txtNama.setText(""); // Mengosongkan text field nama
+        txtHarga.setText(""); // Mengosongkan text field harga
+        txtStok.setText(""); // Mengosongkan text field stok
+        txtDeskripsi.setText(""); // Mengosongkan text field deskripsi
     }
 
     /**
@@ -310,6 +286,8 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
@@ -326,20 +304,12 @@ private DefaultTableModel model; // Mendeklarasikan model untuk tabel
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblElektronik;
-    private javax.swing.JTextField txtDaya;
     private javax.swing.JTextField txtDeskripsi;
-    private javax.swing.JTextField txtGaransi;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtStok;
     // End of variables declaration//GEN-END:variables
 }
-
-
-
-

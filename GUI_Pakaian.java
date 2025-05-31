@@ -2,10 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab6;
+package ProjectRumah.Bab7;
 
-import ProjectRumah.Bab5.*;
-import ProjectRumah.Bab4.*; // Mengimpor class-class dari package Bab4
 import javax.swing.JOptionPane; // Untuk menampilkan pop-up dialog
 import javax.swing.table.DefaultTableModel; // Model tabel untuk manipulasi data tabel
 
@@ -14,6 +12,7 @@ import javax.swing.table.DefaultTableModel; // Model tabel untuk manipulasi data
  * @author Nisa
  */
 public class GUI_Pakaian extends javax.swing.JFrame {
+
     private String kategori; // Menyimpan kategori produk (Pakaian)
     private Object model; // Model untuk tabel (diubah menjadi DefaultTableModel)
     private DefaultTableModel tableModel; // Model tabel untuk memanipulasi data tabel
@@ -226,8 +225,8 @@ public class GUI_Pakaian extends javax.swing.JFrame {
             int stok = Integer.parseInt(stokStr);
 
             // Membuat objek Pakaian baru dengan data yang dimasukkan
-            Pakaian p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran);
-            String warna = txtWarna.getText(); // Mengambil warna produk
+            String warna = txtWarna.getText(); // ambil dulu warna dari input
+            Pakaian p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran); // Mengambil warna produk
 
             // Menambah data produk ke dalam tabel
             Object[] rowData = {
@@ -251,7 +250,7 @@ public class GUI_Pakaian extends javax.swing.JFrame {
     // Menangani aksi tombol hapus
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
-            int selectedRow = tblPakaian.getSelectedRow(); 
+        int selectedRow = tblPakaian.getSelectedRow();
         if (selectedRow != -1) {
             tableModel.removeRow(selectedRow); // Menghapus baris yang dipilih
             JOptionPane.showMessageDialog(this, "Data berhasil dihapus.");
@@ -263,20 +262,20 @@ public class GUI_Pakaian extends javax.swing.JFrame {
     private void Remove(int selectedRow) {
         remove(selectedRow);
     }
-    
+
     // Menangani aksi tombol Batal (mengosongkan form input)
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         // TODO add your handling code here:
         clearForm(); // Memanggil metode untuk mengosongkan form
     }//GEN-LAST:event_btnBatalActionPerformed
 
-     // Menangani aksi tombol Close (menutup aplikasi)
+    // Menangani aksi tombol Close (menutup aplikasi)
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         System.exit(0); // Menutup aplikasi
     }//GEN-LAST:event_btnCloseActionPerformed
 
-    private void clearForm() { 
+    private void clearForm() {
         txtNama.setText(""); // Mengosongkan field Nama
         txtHarga.setText(""); // Mengosongkan field Harga
         txtStok.setText(""); // Mengosongkan field Stok
@@ -284,6 +283,7 @@ public class GUI_Pakaian extends javax.swing.JFrame {
         txtWarna.setText(""); // Mengosongkan field Warna
         txtDeskripsi.setText(""); // Mengosongkan field Deskripsi
     }
+
     /**
      * @param args the command line arguments
      */
@@ -309,6 +309,14 @@ public class GUI_Pakaian extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Pakaian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

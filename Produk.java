@@ -2,29 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab6;
-
-import ProjectRumah.Bab5.*;
-import ProjectRumah.Bab4.*; // Mengimpor semua class dari package Bab4
+package ProjectRumah.Bab7;
 /**
  *
  * @author Nisa
  */
-public class Produk { // atribut kelas untuk menyimpan produk
-    private String namaProduk; // nama produk
-    double harga; // harga produk
-    int stok; // stok produk
-    private String kategori; // kategori produk
-    private String deskripsi; // deskripsi produk
-    
-    public Produk(String nama, double harga, int stok, String kategori, String deskripsi) { // Konstruktor untuk mengatur data awal produk saat dibuat
-        this.namaProduk = nama; // Mengisi nama produk
-        this.harga = harga; // Mengisi harga produk
-        this.stok = stok; // Mengisi stok produk
-        this.kategori = kategori; // Mengisi kategori produk
-        this.deskripsi = deskripsi; // Mengisi deskripsi produk
+public class Produk { // Kelas induk untuk menyimpan data produk
+
+    protected String namaProduk; // Menyimpan nama produk
+    protected double harga; // Menyimpan harga produk
+    protected int stok; // Menyimpan jumlah stok produk
+    protected String kategori; // Menyimpan kategori produk
+    protected String deskripsi; // Menyimpan deskripsi produk
+
+    public Produk(String nama, double harga, int stok, String kategori, String deskripsi) {
+        this.namaProduk = nama; // Inisialisasi nama produk
+        this.harga = harga; // Inisialisasi harga produk
+        this.stok = stok; // Inisialisasi stok produk
+        this.kategori = kategori; // Inisialisasi kategori produk
+        this.deskripsi = deskripsi; // Inisialisasi deskripsi produk
     }
-    
+
     public String getNama() { // Getter untuk mengambil nilai namaProduk dari luar class
         return namaProduk; // Mengembalikan nilai namaProduk
     }
@@ -66,10 +64,14 @@ public class Produk { // atribut kelas untuk menyimpan produk
     }
 
     public String getInfoProduk() { // Method untuk menampilkan semua info produk dalam format teks
-        return "Nama: " + namaProduk + // Menampilkan nama produk
-               ", Harga: " + harga + // Menampilkan harga produk
-               ", Stok: " + stok + // Menampilkan stok produk
-               ", Kategori: " + kategori + // Menampilkan kategori produk
-               ", Deskripsi: " + deskripsi; // Menampilkan deskripsi produk
+        return "Nama: " + namaProduk
+                + // Menampilkan nama produk
+                ", Harga: " + harga
+                + // Menampilkan harga produk
+                ", Stok: " + stok
+                + // Menampilkan stok produk
+                ", Kategori: " + kategori
+                + // Menampilkan kategori produk
+                ", Deskripsi: " + deskripsi; // Menampilkan deskripsi produk
     }
 }
