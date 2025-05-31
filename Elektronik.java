@@ -2,36 +2,38 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab7;
+package ProjectRumah.Bab8;
+
+import ProjectRumah.Bab7.*;
 
 /**
  *
  * @author Nisa
  */
-public class Elektronik extends Produk { // Class Elektronik ini anak dari class Produk
+public class Elektronik extends Produk { // Class Elektronik turunan dari Produk
 
-    private int garansi; // Variabel buat nyimpen lama garansi (dalam bulan)
-    private int daya;    // Variabel buat nyimpen besar daya (dalam watt)
+    private int garansi; // Buat nyimpen masa garansi
+    private int daya; // Buat nyimpen konsumsi daya
 
     // Konstruktor
     public Elektronik(String nama, double harga, int stok, String kategori, String deskripsi) {
-        super(nama, harga, stok, kategori, deskripsi); // Memanggil konstruktor dari class induk (Produk)
-        this.garansi = garansi;
-        this.daya = daya;
+        super(nama, harga, stok, kategori, deskripsi); // Panggil konstruktor dari class Produk
+        this.garansi = garansi; // Inisialisasi garansi (tapi belum dapet nilai, ini harus dibenerin)
+        this.daya = daya; // Inisialisasi daya (juga belum dapet nilai)
     }
 
-    // Getter buat ngambil nilai garansi
-    public int getGaransi() {
-        return garansi; // Balikin nilai garansi
+    // Getter yang udah diimplementasiin
+    public int getGaransi() { // Buat ngambil nilai garansi
+        return garansi;
     }
 
-    // Getter buat ngambil nilai daya
-    public int getDaya() {
-        return daya; // Balikin nilai daya
+    public int getDaya() { // Buat ngambil nilai daya
+        return daya;
     }
 
-    // Override method buat nampilin info produk versi Elektronik
+    // Metode buat nampilin info produk
     public String getInfoProduk() {
-        return super.getInfoProduk() + ", Garansi: " + garansi + " bulan, Daya: " + daya + " watt"; // Tambahin info garansi & daya
+        return super.getInfoProduk() + ", Garansi: " + garansi + " bulan, Daya: " + daya + " watt"; // Gabung info dari Produk sama garansi & daya
     }
 }
+

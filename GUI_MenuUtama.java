@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab7;
+package ProjectRumah.Bab8;
+
+import ProjectRumah.Bab7.*;
 
 /**
  *
@@ -95,7 +97,6 @@ public class GUI_MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         GUI_Produk mhs = new GUI_Produk(); // Bikin objek tampilan Produk
         mhs.show(); // Tampilkan GUI Produk
-
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
@@ -129,6 +130,8 @@ public class GUI_MenuUtama extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

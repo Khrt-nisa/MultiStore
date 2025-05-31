@@ -2,18 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab7;
+package ProjectRumah.Bab8;
+
+import ProjectRumah.Bab7.*;
+
 /**
  *
  * @author Nisa
  */
-public class Produk { // Kelas induk untuk menyimpan data produk
+public class Produk { // Kelas induk buat nyimpen data umum semua jenis produk
 
-    protected String namaProduk; // Menyimpan nama produk
-    protected double harga; // Menyimpan harga produk
-    protected int stok; // Menyimpan jumlah stok produk
-    protected String kategori; // Menyimpan kategori produk
-    protected String deskripsi; // Menyimpan deskripsi produk
+    protected String namaProduk; // Nama dari produk
+    protected double harga; // Harga dari produk
+    protected int stok; // Jumlah stok produk
+    protected String kategori; // Kategori produk (misalnya: Elektronik, Pakaian)
+    protected String deskripsi; // Penjelasan singkat soal produk
 
     public Produk(String nama, double harga, int stok, String kategori, String deskripsi) {
         this.namaProduk = nama; // Inisialisasi nama produk

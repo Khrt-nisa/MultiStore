@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab7; // Menentukan lokasi package
+package ProjectRumah.Bab8; // Menentukan lokasi package
 
+import ProjectRumah.Bab7.*;
 import java.awt.event.*; // Mengimpor event seperti klik tombol
 import javax.swing.*; // Untuk komponen GUI (label, tombol, dll)
 import javax.swing.table.DefaultTableModel; // Untuk model tabel (data ditampilkan di tabel)
-
+import java.util.Scanner;
 /**
  *
  * @author Nisa
@@ -226,52 +227,51 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
     // Event saat tombol Simpan diklik
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:                                       
-        String nama = txtNamaProduk.getText(); // Mengambil input nama produk
-        String hargaStr = txtHarga.getText(); // Mengambil input harga dalam bentuk string
-        String stokStr = txtStok.getText(); // Mengambil input stok dalam bentuk string
-        String kategori = cmbKategori.getSelectedItem().toString(); // Mengambil kategori yang dipilih
-        String deskripsi = txtDeskripsi.getText(); // Mengambil input deskripsi
-        
-        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Validasi input kosong
-            return; // Menghentikan proses jika ada input kosong
+        String nama = txtNamaProduk.getText(); // Ambil input nama dari field teks
+        String hargaStr = txtHarga.getText(); // Ambil input harga (string) dari field teks
+        String stokStr = txtStok.getText(); // Ambil input stok (string) dari field teks
+        String kategori = cmbKategori.getSelectedItem().toString(); // Ambil kategori yang dipilih dari combo box
+        String deskripsi = txtDeskripsi.getText(); // Ambil deskripsi dari field teks
+
+        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) { // Validasi kalau ada field kosong
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Tampilkan pesan warning
+            return; // Berhentiin proses kalau validasi gagal
         }
 
         try {
-            double harga = Double.parseDouble(hargaStr); // Mengubah harga menjadi double
-            int stok = Integer.parseInt(stokStr); // Mengubah stok menjadi integer
+            double harga = Double.parseDouble(hargaStr); // Convert harga dari string ke double
+            int stok = Integer.parseInt(stokStr); // Convert stok dari string ke integer
 
-            Produk p = null; // Deklarasi objek produk
+            Produk p = null; // Inisialisasi objek Produk
 
-            if (kategori.equals("Elektronik")) {
-                int garansi = 12; // Nilai default garansi
-                int daya = 100; // Nilai default daya
-                p = new Elektronik(nama, harga, stok, kategori, deskripsi); // Membuat objek Elektronik
+            if (kategori.equals("Elektronik")) { // Cek kategori apakah Elektronik
+                int garansi = 12; // Set garansi default
+                int daya = 100; // Set daya default
+                p = new Elektronik(nama, harga, stok, kategori, deskripsi); // Buat objek Elektronik
 
-            } else if (kategori.equals("Pakaian")) {
-                String ukuran = "M"; // Nilai default ukuran
-                String warna = "Hitam"; // Nilai default warna
-                p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran); // Membuat objek Pakaian
+            } else if (kategori.equals("Pakaian")) { // Cek kategori apakah Pakaian
+                String ukuran = "M"; // Set ukuran default
+                String warna = "Hitam"; // Set warna default
+                p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran); // Buat objek Pakaian
 
             } else {
-                JOptionPane.showMessageDialog(this, "Kategori belum didukung!", "Error", JOptionPane.ERROR_MESSAGE); // Pesan jika kategori tidak dikenali
+                JOptionPane.showMessageDialog(this, "Kategori belum didukung!", "Error", JOptionPane.ERROR_MESSAGE); // Kalau kategori nggak dikenali
                 return;
             }
 
-            Object[] rowData = {
-                p.getNama(),
-                p.getHarga(),
-                p.getStok(),
-                p.getKategori(),
-                p.getDeskripsi()
+            Object[] rowData = { // Siapkan data untuk ditampilkan ke tabel
+                p.getNama(), // Ambil nama produk
+                p.getHarga(), // Ambil harga produk
+                p.getStok(), // Ambil stok produk
+                p.getKategori(), // Ambil kategori produk
+                p.getDeskripsi() // Ambil deskripsi produk
             };
+            model.addRow(rowData); // Tambahkan data produk ke tabel
+            clearForm(); // Reset form input
+            System.out.println(p.getInfoProduk()); // Tampilkan info produk di console (debugging)
 
-            model.addRow(rowData); // Menambahkan data ke tabel
-            clearForm(); // Membersihkan form input
-            System.out.println(p.getInfoProduk()); // Menampilkan informasi produk di konsol
-
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Harga dan Stok harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE); // Validasi input angka
+        } catch (NumberFormatException ex) { // Tangani error kalau parsing angka gagal
+            JOptionPane.showMessageDialog(this, "Harga dan Stok harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE); // Tampilkan pesan error
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
@@ -282,16 +282,16 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
 
     private void txtHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHapusActionPerformed
         // TODO add your handling code here:
-        txtHapus.addActionListener(new ActionListener() { // Tambahkan event listener ke tombol Hapus
-            public void actionPerformed(ActionEvent e) { // Aksi saat tombol benar-benar ditekan
-                int selectedRow = tblProduk.getSelectedRow(); // Ambil baris yang sedang dipilih di tabel
-                if (selectedRow != -1) { // Cek jika ada baris yang dipilih
-                    model.removeRow(selectedRow); // Hapus baris yang dipilih dari tabel
-                } else { // Kalau tidak ada yang dipilih
-                    JOptionPane.showMessageDialog(null, "Pilih data yang ingin dihapus."); // Tampilkan peringatan
-                }
+        try {
+            int selectedRow = tblProduk.getSelectedRow(); // Ambil baris yang dipilih di tabel
+            if (selectedRow != -1) { // Cek apakah ada baris yang dipilih
+                model.removeRow(selectedRow); // Hapus baris dari model tabel
+            } else {
+                JOptionPane.showMessageDialog(null, "Pilih data yang ingin dihapus."); // Tampilkan peringatan kalau belum pilih
             }
-        });
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat menghapus data: " + ex.getMessage()); // Tampilkan error kalau proses gagal
+        }
     }//GEN-LAST:event_txtHapusActionPerformed
 
     private void txtCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCloseActionPerformed
@@ -335,9 +335,6 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Produk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
