@@ -2,12 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab8;
+package ProjectRumah.Bab9;
 
-import ProjectRumah.Bab7.*;
 import javax.swing.JOptionPane; // Untuk menampilkan pop-up dialog
 import javax.swing.table.DefaultTableModel; // Model tabel untuk manipulasi data tabel
-import java.util.Scanner;
+
 /**
  *
  * @author Nisa
@@ -226,13 +225,18 @@ public class GUI_Pakaian extends javax.swing.JFrame {
             int stok = Integer.parseInt(stokStr);
 
             // Membuat objek Pakaian baru dengan data yang dimasukkan
-            String warna = txtWarna.getText(); // ambil dulu warna dari input
-            Pakaian p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran); // Mengambil warna produk
+            String warna = txtWarna.getText();
+            Pakaian p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran, warna); // Membuat objek Pakaian dengan data lengkap
 
-            // Menambah data produk ke dalam tabel
-            Object[] rowData = {
-                p.getNama(), p.getHarga(), p.getStok(), p.getKategori(), p.getDeskripsi(), p.getUkuran()
+            Object[] rowData = { // Membuat array untuk data produk yang akan ditampilkan di tabel
+                p.getNama(), // Ambil nama produk
+                p.getHarga(), // Ambil harga produk
+                p.getStok(), // Ambil stok produk
+                p.getKategori(), // Ambil kategori produk
+                p.getDeskripsi(), // Ambil deskripsi produk
+                p.getUkuran() // Ambil ukuran pakaian
             };
+
             tableModel.addRow(rowData); // Menambah baris baru ke tabel
 
             clearForm(); // Mengosongkan form input setelah data ditambahkan
@@ -310,7 +314,6 @@ public class GUI_Pakaian extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Pakaian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() { // Menjalankan GUI

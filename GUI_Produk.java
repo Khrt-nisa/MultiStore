@@ -2,13 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab8; // Menentukan lokasi package
+package ProjectRumah.Bab9; // Menentukan lokasi package
 
-import ProjectRumah.Bab7.*;
 import java.awt.event.*; // Mengimpor event seperti klik tombol
 import javax.swing.*; // Untuk komponen GUI (label, tombol, dll)
 import javax.swing.table.DefaultTableModel; // Untuk model tabel (data ditampilkan di tabel)
-import java.util.Scanner;
+
 /**
  *
  * @author Nisa
@@ -213,8 +212,8 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
                         .addComponent(btnBatal)
                         .addComponent(txtClose)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -227,50 +226,50 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
     // Event saat tombol Simpan diklik
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:                                       
-        String nama = txtNamaProduk.getText(); // Ambil input nama dari field teks
-        String hargaStr = txtHarga.getText(); // Ambil input harga (string) dari field teks
-        String stokStr = txtStok.getText(); // Ambil input stok (string) dari field teks
-        String kategori = cmbKategori.getSelectedItem().toString(); // Ambil kategori yang dipilih dari combo box
-        String deskripsi = txtDeskripsi.getText(); // Ambil deskripsi dari field teks
+        String nama = txtNamaProduk.getText();// Ambil input nama produk dari form
+        String hargaStr = txtHarga.getText(); // Ambil input harga produk dari form (string)
+        String stokStr = txtStok.getText(); // Ambil input stok produk dari form (string)
+        String kategori = cmbKategori.getSelectedItem().toString(); // Ambil pilihan kategori dari combo box
+        String deskripsi = txtDeskripsi.getText();// Ambil input deskripsi produk dari form
 
-        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) { // Validasi kalau ada field kosong
-            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Tampilkan pesan warning
-            return; // Berhentiin proses kalau validasi gagal
+        if (nama.isEmpty() || hargaStr.isEmpty() || stokStr.isEmpty()) { // Cek apakah ada field kosong
+            JOptionPane.showMessageDialog(this, "Semua field harus diisi!", "Peringatan", JOptionPane.WARNING_MESSAGE); // Tampilkan peringatan
+            return; // Hentikan proses jika ada field kosong
         }
 
         try {
-            double harga = Double.parseDouble(hargaStr); // Convert harga dari string ke double
-            int stok = Integer.parseInt(stokStr); // Convert stok dari string ke integer
+            double harga = Double.parseDouble(hargaStr);// Ubah input harga dari string ke double
+            int stok = Integer.parseInt(stokStr);// Ubah input stok dari string ke integer
 
-            Produk p = null; // Inisialisasi objek Produk
+            Produk p = null;// Deklarasi objek produk
 
-            if (kategori.equals("Elektronik")) { // Cek kategori apakah Elektronik
-                int garansi = 12; // Set garansi default
-                int daya = 100; // Set daya default
+            if (kategori.equals("Elektronik")) { // Jika kategori Elektronik
+                int garansi = 12;// Set garansi default (tidak dipakai langsung)
+                int daya = 100; // Set daya default (tidak dipakai langsung)
                 p = new Elektronik(nama, harga, stok, kategori, deskripsi); // Buat objek Elektronik
 
-            } else if (kategori.equals("Pakaian")) { // Cek kategori apakah Pakaian
+            } else if (kategori.equals("Pakaian")) { // Jika kategori Pakaian
                 String ukuran = "M"; // Set ukuran default
                 String warna = "Hitam"; // Set warna default
-                p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran); // Buat objek Pakaian
+                p = new Pakaian(nama, harga, stok, kategori, deskripsi, ukuran, warna); // Buat objek Pakaian
 
             } else {
-                JOptionPane.showMessageDialog(this, "Kategori belum didukung!", "Error", JOptionPane.ERROR_MESSAGE); // Kalau kategori nggak dikenali
-                return;
+                JOptionPane.showMessageDialog(this, "Kategori belum didukung!", "Error", JOptionPane.ERROR_MESSAGE); // Tampilkan error kategori
+                return; // Hentikan proses jika kategori tidak didukung
             }
 
-            Object[] rowData = { // Siapkan data untuk ditampilkan ke tabel
-                p.getNama(), // Ambil nama produk
-                p.getHarga(), // Ambil harga produk
-                p.getStok(), // Ambil stok produk
-                p.getKategori(), // Ambil kategori produk
-                p.getDeskripsi() // Ambil deskripsi produk
+            Object[] rowData = { // Siapkan data produk untuk ditampilkan di tabel
+                p.getNama(),
+                p.getHarga(),
+                p.getStok(),
+                p.getKategori(),
+                p.getDeskripsi()
             };
-            model.addRow(rowData); // Tambahkan data produk ke tabel
-            clearForm(); // Reset form input
-            System.out.println(p.getInfoProduk()); // Tampilkan info produk di console (debugging)
+            model.addRow(rowData);// Tambahkan baris baru ke model tabel
+            clearForm(); // Bersihkan form input setelah data ditambahkan
+            System.out.println(p.getInfoProduk());// Tampilkan info produk di console
 
-        } catch (NumberFormatException ex) { // Tangani error kalau parsing angka gagal
+        } catch (NumberFormatException ex) {// Tangani jika input harga atau stok bukan angka
             JOptionPane.showMessageDialog(this, "Harga dan Stok harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE); // Tampilkan pesan error
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
@@ -283,14 +282,14 @@ public class GUI_Produk extends javax.swing.JFrame { // Kelas utama
     private void txtHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHapusActionPerformed
         // TODO add your handling code here:
         try {
-            int selectedRow = tblProduk.getSelectedRow(); // Ambil baris yang dipilih di tabel
-            if (selectedRow != -1) { // Cek apakah ada baris yang dipilih
-                model.removeRow(selectedRow); // Hapus baris dari model tabel
+            int selectedRow = tblProduk.getSelectedRow();
+            if (selectedRow != -1) {
+                model.removeRow(selectedRow);
             } else {
-                JOptionPane.showMessageDialog(null, "Pilih data yang ingin dihapus."); // Tampilkan peringatan kalau belum pilih
+                JOptionPane.showMessageDialog(null, "Pilih data yang ingin dihapus.");
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat menghapus data: " + ex.getMessage()); // Tampilkan error kalau proses gagal
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat menghapus data: " + ex.getMessage());
         }
     }//GEN-LAST:event_txtHapusActionPerformed
 

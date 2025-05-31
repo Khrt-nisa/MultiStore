@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ProjectRumah.Bab8;
+package ProjectRumah.Bab9;
 
-import ProjectRumah.Bab7.*;
 import java.awt.event.ActionEvent; // Mengimpor kelas ActionEvent untuk menangani event
 import java.awt.event.ActionListener; // Mengimpor kelas ActionListener untuk menangani aksi
 import javax.swing.JOptionPane; // Mengimpor JOptionPane untuk dialog pesan
 import javax.swing.table.DefaultTableModel; // Mengimpor DefaultTableModel untuk tabel
-import java.util.Scanner;
+
 /**
  *
  * @author Nisa
@@ -88,13 +87,13 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_El
 
         tblElektronik.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nama", "Harga", "Stok", "Daya", "Garansi", "Deskripsi"
+                "Nama", "Harga", "Stok", "Kategori", "Deskripsi"
             }
         ));
         jScrollPane2.setViewportView(tblElektronik);
@@ -125,20 +124,19 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_El
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSimpan)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnHapus)
-                        .addGap(31, 31, 31)
-                        .addComponent(btnBatal)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnClose))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSimpan)
+                                .addGap(33, 33, 33)
+                                .addComponent(btnHapus)
+                                .addGap(31, 31, 31)
+                                .addComponent(btnBatal)
+                                .addGap(39, 39, 39)
+                                .addComponent(btnClose))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -150,19 +148,22 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_El
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtDeskripsi, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(txtStok, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                                    .addComponent(jLabel7))
+                                .addGap(22, 22, 22)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtDeskripsi, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                    .addComponent(txtStok, javax.swing.GroupLayout.Alignment.LEADING)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jLabel1)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,41 +182,25 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_El
                             .addComponent(jLabel7)
                             .addComponent(txtDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimpan)
                     .addComponent(btnHapus)
                     .addComponent(btnBatal)
                     .addComponent(btnClose))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+    private void txtStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStokActionPerformed
         // TODO add your handling code here:
-        System.exit(0); // Menutup aplikasi
-    }//GEN-LAST:event_btnCloseActionPerformed
-
-    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
-        // TODO add your handling code here:
-        clearForm(); // Membersihkan form
-    }//GEN-LAST:event_btnBatalActionPerformed
-
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblElektronik.getSelectedRow(); // Mendapatkan baris yang dipilih pada tabel
-        if (selectedRow != -1) {
-            model.removeRow(selectedRow); // Menghapus baris yang dipilih
-        } else {
-            JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus."); // Menampilkan pesan jika tidak ada baris yang dipilih
-        }
-    }//GEN-LAST:event_btnHapusActionPerformed
+    }//GEN-LAST:event_txtStokActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:   
         String nama = txtNama.getText(); // Mendapatkan nilai dari text field nama
         String hargaStr = txtHarga.getText(); // Mendapatkan nilai dari text field harga
         String stokStr = txtStok.getText(); // Mendapatkan nilai dari text field stok
@@ -236,7 +221,7 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_El
 
             Object[] rowData = { // Membuat data untuk baris tabel
                 e.getNama(), // Data Nama
-                e.getHarga(), // Data Harga
+                e.getHarga(), // Data Harga 
                 e.getStok(), // Data Stok
                 e.getKategori(), // Data Kategori
                 e.getDeskripsi(), // Data Deskripsi,
@@ -251,9 +236,25 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_El
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
-    private void txtStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStokActionPerformed
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtStokActionPerformed
+        System.exit(0); // Menutup aplikasi
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblElektronik.getSelectedRow(); // Mendapatkan baris yang dipilih pada tabel
+        if (selectedRow != -1) {
+            model.removeRow(selectedRow); // Menghapus baris yang dipilih
+        } else {
+            JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus."); // Menampilkan pesan jika tidak ada baris yang dipilih
+        }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
+        // TODO add your handling code here:
+        clearForm(); // Membersihkan form
+    }//GEN-LAST:event_btnBatalActionPerformed
 
     private void clearForm() { // Metode untuk membersihkan semua field
         txtNama.setText(""); // Mengosongkan text field nama
@@ -287,13 +288,6 @@ public class GUI_Elektronik extends javax.swing.JFrame { // Membuat kelas GUI_El
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI_Elektronik.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

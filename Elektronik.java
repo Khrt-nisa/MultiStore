@@ -2,38 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProjectRumah.Bab8;
+package ProjectRumah.Bab9;
 
-import ProjectRumah.Bab7.*;
 
 /**
  *
  * @author Nisa
  */
-public class Elektronik extends Produk { // Class Elektronik turunan dari Produk
 
-    private int garansi; // Buat nyimpen masa garansi
-    private int daya; // Buat nyimpen konsumsi daya
+public class Elektronik extends Produk implements DeskripsiProduk { // Kelas Elektronik turunan Produk dan implementasi interface DeskripsiProduk
+    private int garansi;   // Atribut garansi dalam bulan
+    private int daya;      // Atribut daya listrik dalam watt
 
     // Konstruktor
     public Elektronik(String nama, double harga, int stok, String kategori, String deskripsi) {
-        super(nama, harga, stok, kategori, deskripsi); // Panggil konstruktor dari class Produk
-        this.garansi = garansi; // Inisialisasi garansi (tapi belum dapet nilai, ini harus dibenerin)
-        this.daya = daya; // Inisialisasi daya (juga belum dapet nilai)
+        super(nama, harga, stok, kategori, deskripsi); // Panggil konstruktor kelas induk Produk
+        this.garansi = garansi; // Inisialisasi atribut garansi (perlu parameter agar nilai tidak null)
+        this.daya = daya;       // Inisialisasi atribut daya (perlu parameter agar nilai tidak null)
     }
 
-    // Getter yang udah diimplementasiin
-    public int getGaransi() { // Buat ngambil nilai garansi
-        return garansi;
+    public int getGaransi() {  // Getter untuk mengambil nilai garansi
+        return garansi;        // Kembalikan nilai garansi
     }
 
-    public int getDaya() { // Buat ngambil nilai daya
-        return daya;
+    public int getDaya() {     // Getter untuk mengambil nilai daya
+        return daya;           // Kembalikan nilai daya
     }
 
-    // Metode buat nampilin info produk
-    public String getInfoProduk() {
-        return super.getInfoProduk() + ", Garansi: " + garansi + " bulan, Daya: " + daya + " watt"; // Gabung info dari Produk sama garansi & daya
+    public String getInfoProduk() {  // Override method dari interface DeskripsiProduk
+        return super.getInfoProduk() + ", Garansi: " + garansi + " bulan, Daya: " + daya + " watt"; // Tambahkan info garansi dan daya
     }
 }
-
